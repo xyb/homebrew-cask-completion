@@ -19,7 +19,7 @@ function __fish_brew_cask_using_command
 end
 
 function __fish_brew_cask_casks
-  ls (brew --repository)/Library/Taps/caskroom/homebrew-cask/Casks/*.rb | sed 's/.rb$//' | sed "s|^.*/||"
+  find (brew --repository)/Library/Taps/caskroom/homebrew-cask/Casks -name "*.rb" -print | sed 's/.rb$//' | sed "s|^.*/||"
 end
 
 function __fish_brew_cask_caskroom
