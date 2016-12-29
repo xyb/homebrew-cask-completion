@@ -103,10 +103,6 @@ complete -f -c brew-cask -n '__fish_brew_cask_using_command uninstall' -l force 
 complete -f -c brew-cask -n '__fish_brew_cask_using_command remove' -l force -d 'Uninstall even cask not present'
 complete -f -c brew-cask -n '__fish_brew_cask_using_command rm' -l force -d 'Uninstall even cask not present'
 
-# update
-complete -f -c brew-cask -n '__fish_brew_cask_needs_command' -a update -d 'A synonym for brew update'
-complete -f -c brew-cask -n '__fish_brew_cask_using_command update' -l rebase -d 'Use git pull --rebase'
-
 # zap
 complete -f -c brew-cask -n '__fish_brew_cask_needs_command' -a zap -d 'Unconditionally remove all files associated with casks'
 complete -c brew-cask -n '__fish_brew_cask_using_command zap' -a '(__fish_brew_cask_caskroom)'

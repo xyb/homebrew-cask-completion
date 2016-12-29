@@ -119,17 +119,6 @@ _brew_cask_uninstall ()
     __brew_cask_complete_installed
 }
 
-_brew_cask_update ()
-{
-    local cur="${COMP_WORDS[COMP_CWORD]}"
-    case "$cur" in
-    -*)
-        __brew_caskcomp "--rebase --verbose"
-        return
-        ;;
-    esac
-}
-
 _brew_cask ()
 {
     local i=1 cmd
@@ -153,7 +142,7 @@ _brew_cask ()
     done
 
     if [[ $i -eq $COMP_CWORD ]]; then
-        __brew_caskcomp "abv alfred audit cat cleanup create doctor edit fetch home info install list ls remove rm search uninstall update zap -S --force --caskroom --verbose --appdir --colorpickerdir --prefpanedir --qlplugindir --fontdir --servicedir --input_methoddir --internet_plugindir --screen_saverdir --no-binaries --binarydir --debug"
+        __brew_caskcomp "abv alfred audit cat cleanup create doctor edit fetch home info install list ls remove rm search uninstall zap -S --force --caskroom --verbose --appdir --colorpickerdir --prefpanedir --qlplugindir --fontdir --servicedir --input_methoddir --internet_plugindir --screen_saverdir --no-binaries --binarydir --debug"
         return
     fi
 
@@ -167,7 +156,6 @@ _brew_cask ()
     install|instal)         __brew_cask_complete_formulae ;;
     list|ls)                _brew_cask_list ;;
     uninstall|remove|rm)    _brew_cask_uninstall ;;
-    update)                 _brew_cask_update ;;
     zap)                    __brew_cask_complete_caskroom ;;
     *)                      ;;
     esac
